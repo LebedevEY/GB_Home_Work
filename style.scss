@@ -1,26 +1,7 @@
-.center {
-    padding-left: calc(50% - 570px);
-    padding-right: calc(50% - 570px);
-}
-
-.wrapper {
-    margin-top: 10%;
-}
-
-.form-label {
-    font-size: large;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-
-    .btn {
-        margin-top: 20px;
-
-        &_sf {
-            font-size: 15px;
-        }
-    }
+h1 {
+    width: fit-content;
+    margin: 0 auto;
+    font-family: roboto;
+    padding-top: 150px;
+    font-size: 100px;
 }
