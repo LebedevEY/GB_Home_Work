@@ -49,4 +49,4 @@ while (i < 20) {
     console.log(j);
     j += 'x';
     i++;
-}
+};
