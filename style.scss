@@ -1,7 +1,23 @@
-h1 {
-    width: fit-content;
-    margin: 0 auto;
-    font-family: roboto;
-    padding-top: 150px;
-    font-size: 100px;
+#game tr:nth-child(odd) td:nth-child(odd) {
+    background-color: black;
+}
+
+#game tr:nth-child(even) td:nth-child(even) {
+    background-color: black;
+}
+
+tr {
+    width: 20px;
+    height: 20px;
+}
+
+td {
+    border: 1px solid #000;
+    width: 20px;
+    height: 20px;
+}
+
+th {
+    width: 20px;
+    height: 20px;
 }
