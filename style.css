@@ -1,9 +1,12 @@
-#game tr:nth-child(odd) td:nth-child(odd) {
-  background-color: black;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-#game tr:nth-child(even) td:nth-child(even) {
-  background-color: black;
+.center {
+  padding-left: calc(50% - 570px);
+  padding-right: calc(50% - 570px);
+  margin-bottom: 80px;
 }
 
 tr {
@@ -15,5 +18,62 @@ td {
   border: 1px solid #000;
   width: 20px;
   height: 20px;
+  text-align: center;
+}
+
+table {
+  margin: 50px auto;
+}
+
+.good {
+  border: 1px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ccc;
+  max-width: 20em;
+}
+
+.good:first-child {
+  margin-top: 20px;
+}
+
+.cart-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.cart-btn {
+  margin-top: 20px;
+}
+
+img {
+  width: 45%;
+}
+
+.catalog {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.catalog_item {
+  border: 1px solid #000;
+  margin-bottom: 5px;
+  background: #ccc;
+  max-width: 20em;
 }
 /*# sourceMappingURL=style.css.map */
