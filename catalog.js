@@ -8,7 +8,7 @@ const catalogItem = {
                     <br>
                     <div><p>${good.description}</div>
                 </div>
-                <button class = "buy_btn">Купить</button>
+                <button data-id = "${good.id}" class = "buy_btn">Купить</button>
             </div>`;
     }
 }
@@ -78,6 +78,14 @@ const catalog = {
             product_name: 'Гарнитура',
             product_photo: 'headset.png',
             price: 12000,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        },
+
+        {
+            id: 9,
+            product_name: 'Монитор',
+            product_photo: 'monitor.png',
+            price: 23000,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         }
     ],

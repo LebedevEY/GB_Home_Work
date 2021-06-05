@@ -6,6 +6,7 @@ const cartItem = {
                     <div><b>Цена за шт.</b>: ${good.price}</div>
                     <div><b>Количество</b>: ${good.quantity}</div>
                     <div><b>Стоимость</b>: ${good.quantity * good.price}</div>
+                    <button data-id = "${good.id}" class = "del_btn">Удалить</button>
                 </div>`;
     }
 }
@@ -63,7 +64,7 @@ const cart = {
             });
             this.cartListBlock.insertAdjacentHTML('beforeend', `В корзине ${this.goods.length} позиций(я) стоимостью: ${this.getCartPrice()}`);
         } else {
-            this.cartListBlock.textContent = 'Корзина пуста';
+            this.cartListBlock.innerHTML = '<p class = empty_text>Корзина пуста</p>';
         }
     },
 
