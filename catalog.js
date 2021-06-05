@@ -54,7 +54,7 @@ const catalog = {
         },
 
         {
-            id: 4,
+            id: 6,
             product_name: 'Планшет',
             product_photo: 'tablet.png',
             price: 35000,
@@ -62,7 +62,7 @@ const catalog = {
         },
 
         {
-            id: 4,
+            id: 7,
             product_name: 'Геймпад',
             product_photo: 'gamepad.png',
             price: 4500,
@@ -70,7 +70,7 @@ const catalog = {
         },
 
         {
-            id: 4,
+            id: 8,
             product_name: 'Гарнитура',
             product_photo: 'headset.png',
             price: 12000,
