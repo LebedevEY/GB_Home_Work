@@ -1,3 +1,4 @@
+'use strict';
 const catalogItem = {
     render(good) {
         return `<div class = "catalog_item">
@@ -101,7 +102,13 @@ const catalog = {
                 this.catalogListBlock.insertAdjacentHTML('beforeend', this.catalogItem.render(good));
             });
         }
-    }
+    },
 }
+
+document.onclick = (event => {
+    if (event.target.classList.contains('buy_btn')) {
+        localStorage.setItem(event.target.dataset.id, JSON.stringify(catalog.goods['id']));
+    }
+});
 
 catalog.init();

@@ -1,3 +1,4 @@
+'use strict';
 const cartItem = {
     render(good) {
         return `<div class="good">
@@ -15,39 +16,7 @@ const cart = {
     cartListBlock: null,
     cartButton: null,
     cartItem,
-    goods: [
-        {
-            id: 1,
-            product_name: 'Ноутбук',
-            product_photo: 'laptop.png',
-            price: 80000,
-            quantity: 1
-        },
-
-        {
-            id: 2,
-            product_name: 'МФУ',
-            product_photo: 'mfd.png',
-            price: 50000,
-            quantity: 2
-        },
-
-        {
-            id: 3,
-            product_name: 'Клавиатура',
-            product_photo: 'keyboard.png',
-            price: 2000,
-            quantity: 7
-        },
-
-        {
-            id: 4,
-            product_name: 'Мышь',
-            product_photo: 'mouse.png',
-            price: 800,
-            quantity: 7
-        }
-    ],
+    goods: [],
 
     init() {
         this.cartListBlock = document.querySelector('.cart-list');
@@ -79,5 +48,7 @@ const cart = {
         this.render();
     },
 };
+
+onload = console.log(localStorage.getItem())
 
 cart.init();
