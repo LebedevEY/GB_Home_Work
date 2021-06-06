@@ -1,4 +1,3 @@
-'use strict';
 const cartItem = {
     render(good) {
         return `<div class="good">

@@ -1,134 +1,186 @@
-function getRandomNumber(min, max) {
-    return Math.floor(min + Math.random() * (max - min + 1));
-}
+'use strict';
 
-console.log('\n%cПервое задание', 'color:red')
-var a = 1, b = 1, c, d;
-c = ++a;
-console.log(c + '\nПотому, что при префиксной форме записи оператор ++ возвращает новое значение переменной.');
-d = b++;
-console.log(d + '\nПотому, что при постфиксной форме записи оператор ++ возвращает значение переменной, которое было до произведённых действий.');
-c = (2 + ++a);
-console.log('Результат вычисления (2+ ++a): ' + c + '\nПервоначальное значение a = 2, префиксный ++ увеличивает значение на 1 и возвращает результат. Далее происходит вычисление.');
-d = (2 + b++);
-console.log('Результат вычисления (2 + b++): ' + d + '\nПервоначальное значение b = 2, постфиксный ++ возвращает это значение, происходит вычисление. Далее к значению b прибавляется 1');
-console.log('a = ' + a + ' (дважды применён префиксный ++)');
-console.log('b = ' + b + ' (дважды применён постфиксный ++)');
+//Каталог
 
-console.log('\n%cВторое задание', 'color:red')
-var a = 2;
-var x = 1 + (a *= 2);
-console.log('x = ' + x + '\nПотому, что a *= 2 то же самое, что и a = a * 2');
-
-console.log('\n%cТретье задание', 'color:red')
-
-var a = getRandomNumber(-100, 100);
-var b = getRandomNumber(-100, 100);
-if (a >= 0 && b >= 0) {
-    var res = a - b;
-} else if (a < 0 && b < 0) {
-    var res = a * b;
-} else if (a >= 0 && b < 0 || a < 0 && b >= 0) {
-    var res = a + b;
-}
-console.log(res);
-
-console.log('\n%cЧетвёртое задание', 'color:red')
-
-var a = getRandomNumber(1, 15)
-switch (a) {
-    case 1:
-        console.log(a);
-        a++;
-    case 2:
-        console.log(a);
-        a++;
-    case 3:
-        console.log(a);
-        a++;
-    case 4:
-        console.log(a);
-        a++;
-    case 5:
-        console.log(a);
-        a++;
-    case 6:
-        console.log(a);
-        a++;
-    case 7:
-        console.log(a);
-        a++;
-    case 8:
-        console.log(a);
-        a++;
-    case 9:
-        console.log(a);
-        a++;
-    case 10:
-        console.log(a);
-        a++;
-    case 11:
-        console.log(a);
-        a++;
-    case 12:
-        console.log(a);
-        a++;
-    case 13:
-        console.log(a);
-        a++;
-    case 14:
-        console.log(a);
-        a++;
-    case 15:
-        console.log(a);
-        a++;
-}
-
-console.log('\n%cПятое задание', 'color:red');
-
-function add(a, b) {
-    var res = a + b;
-    return res;
-}
-
-function subtract(a, b) {
-    var res = a - b;
-    return res;
-}
-
-function increase(a, b) {
-    var res = a * b;
-    return res;
-}
-
-function degree(a, b) {
-    var res = a / b;
-    return res;
-}
-console.log('Все функции  на месте');
-
-console.log('\n%cШестое задание', 'color:red');
-
-function mathOperation(arg1, arg2, operation) {
-    var res = operation(arg1, arg2);
-    return res;
-}
-
-console.log(mathOperation(10, 7, subtract));
-
-console.log('\n%cСедьмое задание', 'color:red');
-
-console.log(null == 0, null === 0, null > 0, null < 0, null <= 0, null >= 0);
-console.log("Это объясняется логикой работы операторов >= и <= и их оптимизацией. В начале работы алгоритма опертора он проверяет верно ли, что null меньше 0. Получив false, делается логичный вывод, что null больше либо равен 0. <= работает также, но в обратном направлении.")
-
-console.log('\n%cВосьмое задание', 'color:red');
-
-function power(val, pow) {
-    let res = 1;
-    for (i = 0; i < pow; i++) {
-        res *= val;
+const catalogItem = {
+    render(good) {
+        return `<div class = "catalog_item">
+                <div>
+                    <div><b>Наименование</b>: ${good.product_name}</div>
+                    <div><img class = "product_img" src="img/${good.product_photo}" alt="product image"></div>
+                    <div><b>Цена за шт.</b>: ${good.price}</div>
+                    <br>
+                    <div><p>${good.description}</div>
+                </div>
+                <button data-id = "${good.id}" class = "buy_btn">Купить</button>
+            </div>`;
     }
-    return res;
 }
 
-console.log(power(2, 10));
+const catalog = {
+    catalogListBlock: null,
+    catalogItem,
+    goods: [
+        {
+            id: 1,
+            product_name: 'Ноутбук',
+            product_photo: 'laptop.png',
+            price: 80000,
+            quantity: 1,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        },
+
+        {
+            id: 2,
+            product_name: 'МФУ',
+            product_photo: 'mfd.png',
+            price: 50000,
+            quantity: 1,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        },
+
+        {
+            id: 3,
+            product_name: 'Клавиатура',
+            product_photo: 'keyboard.png',
+            price: 2000,
+            quantity: 1,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        },
+
+        {
+            id: 4,
+            product_name: 'Мышь',
+            product_photo: 'mouse.png',
+            price: 800,
+            quantity: 1,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        },
+
+        {
+            id: 5,
+            product_name: 'Видеокарта',
+            product_photo: 'graphics_card.png',
+            price: 215000,
+            quantity: 1,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        },
+
+        {
+            id: 6,
+            product_name: 'Планшет',
+            product_photo: 'tablet.png',
+            price: 35000,
+            quantity: 1,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        },
+
+        {
+            id: 7,
+            product_name: 'Геймпад',
+            product_photo: 'gamepad.png',
+            price: 4500,
+            quantity: 1,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        },
+
+        {
+            id: 8,
+            product_name: 'Гарнитура',
+            product_photo: 'headset.png',
+            price: 12000,
+            quantity: 1,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        },
+
+        {
+            id: 9,
+            product_name: 'Монитор',
+            product_photo: 'monitor.png',
+            price: 23000,
+            quantity: 1,
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
+        }
+    ],
+
+    init() {
+        this.catalogListBlock = document.querySelector('.catalog');
+        this.render();
+    },
+
+    render() {
+        if (this.goods.length) {
+            this.goods.forEach(good => {
+                this.catalogListBlock.insertAdjacentHTML('beforeend', this.catalogItem.render(good));
+            });
+        }
+    },
+}
+
+catalog.init();
+
+//Корзина
+
+const cartItem = {
+    render(good) {
+        return `<div class="good">
+                    <div><b>Наименование</b>: ${good.product_name}</div>
+                    <div><img class = "product_img" src="img/${good.product_photo}" alt="product image"></div>
+                    <div><b>Цена за шт.</b>: ${good.price}</div>
+                    <div><b>Количество</b>: ${good.quantity}</div>
+                    <div><b>Стоимость</b>: ${good.quantity * good.price}</div>
+                    <button data-id = "${good.id}" class = "del_btn">Удалить</button>
+                </div>`;
+    }
+}
+
+const cart = {
+    cartListBlock: null,
+    cartButton: null,
+    cartItem,
+    goods: [],
+
+    init() {
+        this.cartListBlock = document.querySelector('.cart-list');
+        this.cartButton = document.querySelector('.cart-btn');
+        this.cartButton.addEventListener('click', this.clearCart.bind(this));
+
+        this.render();
+    },
+
+
+    render() {
+        if (this.goods.length) {
+            this.goods.forEach(good => {
+                this.cartListBlock.insertAdjacentHTML('beforeend', this.cartItem.render(good));
+            });
+            this.cartListBlock.insertAdjacentHTML('beforeend', `В корзине ${this.goods.length} позиций(я) стоимостью: ${this.getCartPrice()}`);
+        } else {
+            this.cartListBlock.innerHTML = '<p class = empty_text>Корзина пуста</p>';
+        }
+    },
+
+    getCartPrice() {
+        return this.goods.reduce(function (price, good) {
+            return price + good.price * good.quantity;
+        }, 0);
+    },
+
+    clearCart() {
+        this.goods = [];
+        this.render();
+    },
+};
+
+cart.init();
+
+document.onclick = (event => {
+    if (event.target.classList.contains('buy_btn')) {
+        const i = event.target.dataset.id - 1;
+        const good = Object.assign({}, catalog.goods[i]);
+        cart.goods.push(good);
+        console.log(cart.goods);
+        cart.init();
+    }
+
+});
