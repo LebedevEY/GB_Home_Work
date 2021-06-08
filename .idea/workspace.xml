@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bd46b76c-1fa3-4eef-b389-1188688af8fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snake.html" beforeDir="false" afterPath="$PROJECT_DIR$/snake.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snake.js" beforeDir="false" afterPath="$PROJECT_DIR$/snake.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snake_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/snake_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -28,6 +31,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/snake.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1tDFch3d567b66rnl8qQuGAnGZS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -51,6 +57,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -65,6 +72,7 @@
       <workItem from="1622314893592" duration="283000" />
       <workItem from="1622566759238" duration="147000" />
       <workItem from="1623172896717" duration="81000" />
+      <workItem from="1623174065619" duration="11242000" />
     </task>
     <servers />
   </component>

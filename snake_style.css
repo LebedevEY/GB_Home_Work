@@ -32,6 +32,11 @@ td.cell{
 .food{
     background: #00d021;
 }
+
+.obstacle {
+    background: #fff;
+}
+
 .snakeBody{
     background: #e5e5e5;
 }
@@ -43,4 +48,12 @@ td.cell{
 }
 .disabled:hover{
     background: #7c7c7c;
+}
+
+.score {
+    color: white;
+    text-transform: uppercase;
+    margin: 20px auto;
+    width: fit-content;
+    font-size: x-large;
 }
