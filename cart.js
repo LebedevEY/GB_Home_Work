@@ -48,6 +48,5 @@ const cart = {
     },
 };
 
-onload = console.log(localStorage.getItem())
 
 cart.init();

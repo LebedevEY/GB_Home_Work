@@ -107,8 +107,8 @@ const catalog = {
 
 document.onclick = (event => {
     if (event.target.classList.contains('buy_btn')) {
-        const i = event.target.dataset.id - 1;
-        const cart = Object.assign({}, catalog.goods[i]);
+        const i = event.target.dataset.id;
+        localStorage.setItem('i', JSON.stringify(catalog.goods[i]));
     }
 });
 
