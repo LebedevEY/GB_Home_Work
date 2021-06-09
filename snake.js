@@ -4,7 +4,8 @@ const settings = {
     rowsCount: 21,
     colsCount: 21,
     speed: 4,
-    winFoodCount: 10,
+    winFoodCount: 5,
+    obstacles: 5,
 };
 
 const config = {
@@ -28,6 +29,10 @@ const config = {
 
     getWinFoodCount() {
         return this.settings.winFoodCount;
+    },
+
+    getObstacles() {
+        return this.settings.obstacles;
     },
 
 
@@ -55,6 +60,11 @@ const config = {
         if (this.getWinFoodCount() < 5 || this.getWinFoodCount() > 50) {
             result.isValid = false;
             result.errors.push('Неверные настройки, значение winFoodCount должно быть в диапазоне [5, 50].');
+        }
+
+        if (this.getObstacles() < 0 || this.getObstacles() > 10) {
+            result.isValid = false;
+            result.errors.push('Неверные настройки, значение obstacles должно быть в диапазоне [0, 10].');
         }
 
         return result;
@@ -149,8 +159,6 @@ const snake = {
         const lastBodyPointClone = Object.assign({}, lastBodyPoint);
 
         this.getBody().push(lastBodyPointClone);
-        console.log(this.body.length);
-
     },
 
     getNextStepHeadPoint() {
@@ -394,6 +402,7 @@ const game = {
             this.food.setCoordinates(this.getRandomFreeCoordinates());
 
             if (this.isGameWon()) this.finish();
+
         }
 
         this.snake.makeStep();
@@ -412,7 +421,8 @@ const game = {
 
     isGameWon() {
         return this.snake.getBody().length > this.config.getWinFoodCount();
-    }
+    },
+
 };
 
 game.init();
