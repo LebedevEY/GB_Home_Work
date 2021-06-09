@@ -372,7 +372,8 @@ const game = {
         }, 1000 / this.config.getSpeed());
         this.setPlayButton('Стоп');
 
-        this.obstacleInterval = setInterval(() => {this.tickObstacle()}, 5000);
+        this.obstacleInterval = setInterval(() =>
+            this.obstacle.setCoordinates(this.getRandomFreeCoordinates()), 5000);
     },
 
     stop() {
@@ -410,10 +411,6 @@ const game = {
 
         this.snake.makeStep();
         this.render();
-    },
-
-    tickObstacle() {
-        this.obstacle.setCoordinates(this.getRandomFreeCoordinates());
     },
 
     canMakeStep() {
