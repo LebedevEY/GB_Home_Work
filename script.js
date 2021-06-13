@@ -178,10 +178,27 @@ cart.init();
 document.onclick = (event => {
     if (event.target.classList.contains('buy_btn')) {
         const i = event.target.dataset.id - 1;
-        const good = Object.assign({}, catalog.goods[i]);
-        cart.goods.push(good);
-        console.log(cart.goods);
-        cart.init();
+
+        if (cart.goods.includes(catalog.goods[i])) {
+            catalog.goods[i].quantity += 1;
+            cart.init();
+        } else {
+            cart.goods.push(catalog.goods[i]);
+            catalog.goods[i].id = cart.goods.length;
+            console.log(cart.goods);
+            cart.init();
+        }
     }
 
+    if (event.target.classList.contains('del_btn')) {
+
+        function removeFromCart(id) {
+            let item = cart.goods.find(item => item.id === parseInt(id));
+            let index = cart.goods.indexOf(item);
+            cart.goods.splice(index, 1);
+            cart.init();
+        }
+
+        removeFromCart(event.target.dataset.id);
+    }
 });
