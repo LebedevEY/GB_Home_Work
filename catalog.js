@@ -1,7 +1,4 @@
 'use strict';
-
-//Каталог
-
 const catalogItem = {
     render(good) {
         return `<div class = "catalog_item">
@@ -26,7 +23,6 @@ const catalog = {
             product_name: 'Ноутбук',
             product_photo: 'laptop.png',
             price: 80000,
-            quantity: 1,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         },
 
@@ -35,7 +31,6 @@ const catalog = {
             product_name: 'МФУ',
             product_photo: 'mfd.png',
             price: 50000,
-            quantity: 1,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         },
 
@@ -44,7 +39,6 @@ const catalog = {
             product_name: 'Клавиатура',
             product_photo: 'keyboard.png',
             price: 2000,
-            quantity: 1,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         },
 
@@ -53,7 +47,6 @@ const catalog = {
             product_name: 'Мышь',
             product_photo: 'mouse.png',
             price: 800,
-            quantity: 1,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         },
 
@@ -62,7 +55,6 @@ const catalog = {
             product_name: 'Видеокарта',
             product_photo: 'graphics_card.png',
             price: 215000,
-            quantity: 1,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         },
 
@@ -71,7 +63,6 @@ const catalog = {
             product_name: 'Планшет',
             product_photo: 'tablet.png',
             price: 35000,
-            quantity: 1,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         },
 
@@ -80,7 +71,6 @@ const catalog = {
             product_name: 'Геймпад',
             product_photo: 'gamepad.png',
             price: 4500,
-            quantity: 1,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         },
 
@@ -89,7 +79,6 @@ const catalog = {
             product_name: 'Гарнитура',
             product_photo: 'headset.png',
             price: 12000,
-            quantity: 1,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         },
 
@@ -98,7 +87,6 @@ const catalog = {
             product_name: 'Монитор',
             product_photo: 'monitor.png',
             price: 23000,
-            quantity: 1,
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla totam ex veritatis nobis laudantium maxime?'
         }
     ],
@@ -117,110 +105,11 @@ const catalog = {
     },
 }
 
-catalog.init();
-
-//Корзина
-
-const cartItem = {
-    render(good) {
-        return `<div class="good">
-                    <div><b>Наименование</b>: ${good.product_name}</div>
-                    <div><img class = "product_img" src="img/${good.product_photo}" alt="product image"></div>
-                    <div><b>Цена за шт.</b>: ${good.price}</div>
-                    <div><b>Количество</b>: ${good.quantity}</div>
-                    <div><b>Стоимость</b>: ${good.quantity * good.price}</div>
-                    <div class="buttons">
-                        <button data-id = "${good.id}" class = "del_btn">Удалить</button>
-                        <button data-id = "${good.id}" class = "plus_btn">+</button>
-                        <button data-id = "${good.id}" class = "minus_btn">-</button>
-                    </div>
-                </div>`;
-    }
-}
-
-const cart = {
-    cartListBlock: null,
-    cartButton: null,
-    cartItem,
-    goods: [],
-
-    init() {
-        this.cartListBlock = document.querySelector('.cart-list');
-        this.cartButton = document.querySelector('.cart-btn');
-        this.cartButton.addEventListener('click', this.clearCart.bind(this));
-
-        this.render();
-    },
-
-
-    render() {
-        this.cartListBlock.innerHTML = '';
-        if (this.goods.length) {
-            this.goods.forEach(good => {
-                this.cartListBlock.insertAdjacentHTML('beforeend', this.cartItem.render(good));
-            });
-            this.cartListBlock.insertAdjacentHTML('beforeend', `В корзине ${this.goods.length} позиций(я) стоимостью: ${this.getCartPrice()}`);
-        } else {
-            this.cartListBlock.innerHTML = '<p class = empty_text>Корзина пуста</p>';
-        }
-    },
-
-    getCartPrice() {
-        return this.goods.reduce(function (price, good) {
-            return price + good.price * good.quantity;
-        }, 0);
-    },
-
-    clearCart() {
-        this.goods = [];
-        this.render();
-    },
-};
-
-cart.init();
-
 document.onclick = (event => {
     if (event.target.classList.contains('buy_btn')) {
-        const i = event.target.dataset.id - 1;
-
-        if (cart.goods.includes(catalog.goods[i])) {
-            catalog.goods[i].quantity += 1;
-            cart.init();
-        } else {
-            cart.goods.push(catalog.goods[i]);
-            catalog.goods[i].id = cart.goods.length;
-            console.log(cart.goods);
-            cart.init();
-        }
-    }
-
-    if (event.target.classList.contains('plus_btn')) {
-        const i = event.target.dataset.id - 1;
-        cart.goods[i].quantity += 1;
-        cart.init();
-    }
-
-    if (event.target.classList.contains('minus_btn')) {
-        const i = event.target.dataset.id - 1;
-
-        if (cart.goods[i].quantity === 1) {
-            let btn = document.querySelector('minus_btn');
-            btn.setAttribute('disabled', true);
-        } else {
-            cart.goods[i].quantity -= 1;
-            cart.init();
-        }
-    }
-
-    if (event.target.classList.contains('del_btn')) {
-
-        function removeFromCart(id) {
-            let item = cart.goods.find(item => item.id === parseInt(id));
-            let index = cart.goods.indexOf(item);
-            cart.goods.splice(index, 1);
-            cart.init();
-        }
-
-        removeFromCart(event.target.dataset.id);
+        const i = event.target.dataset.id;
+        localStorage.setItem('i', JSON.stringify(catalog.goods[i]));
     }
 });
+
+catalog.init();
