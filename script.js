@@ -129,7 +129,11 @@ const cartItem = {
                     <div><b>Цена за шт.</b>: ${good.price}</div>
                     <div><b>Количество</b>: ${good.quantity}</div>
                     <div><b>Стоимость</b>: ${good.quantity * good.price}</div>
-                    <button data-id = "${good.id}" class = "del_btn">Удалить</button>
+                    <div class="buttons">
+                        <button data-id = "${good.id}" class = "del_btn">Удалить</button>
+                        <button data-id = "${good.id}" class = "plus_btn">+</button>
+                        <button data-id = "${good.id}" class = "minus_btn">-</button>
+                    </div>
                 </div>`;
     }
 }
@@ -186,6 +190,24 @@ document.onclick = (event => {
             cart.goods.push(catalog.goods[i]);
             catalog.goods[i].id = cart.goods.length;
             console.log(cart.goods);
+            cart.init();
+        }
+    }
+
+    if (event.target.classList.contains('plus_btn')) {
+        const i = event.target.dataset.id - 1;
+        cart.goods[i].quantity += 1;
+        cart.init();
+    }
+
+    if (event.target.classList.contains('minus_btn')) {
+        const i = event.target.dataset.id - 1;
+
+        if (cart.goods[i].quantity === 1) {
+            let btn = document.querySelector('minus_btn');
+            btn.setAttribute('disabled', true);
+        } else {
+            cart.goods[i].quantity -= 1;
             cart.init();
         }
     }

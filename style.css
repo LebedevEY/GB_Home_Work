@@ -14,8 +14,6 @@ body {
 }
 
 h1 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
   padding-top: 20px;
@@ -23,12 +21,8 @@ h1 {
 }
 
 nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 img {
@@ -36,10 +30,8 @@ img {
 }
 
 .catalog {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
   margin: 20px auto 0;
 }
@@ -50,46 +42,30 @@ img {
   background: #ccc;
   width: 100%;
   padding: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .buy_btn {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   margin-top: 20px;
 }
 
 .del_btn {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
   margin-top: 20px;
 }
 
 .good {
   border: 1px solid #000;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   background: #ccc;
   max-width: 20em;
   padding: 5px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .good:first-child {
@@ -97,13 +73,8 @@ img {
 }
 
 .cart-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -115,4 +86,13 @@ img {
   font-size: 50px;
   margin: 0 auto;
 }
+
+.plus_btn {
+  width: 20px;
+}
+
+.minus_btn {
+  width: 20px;
+}
+
 /*# sourceMappingURL=style.css.map */
