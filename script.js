@@ -150,6 +150,7 @@ const cart = {
 
 
     render() {
+        this.cartListBlock.innerHTML = '';
         if (this.goods.length) {
             this.goods.forEach(good => {
                 this.cartListBlock.insertAdjacentHTML('beforeend', this.cartItem.render(good));
